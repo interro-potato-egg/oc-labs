@@ -54,3 +54,20 @@ L1_config_2:
 ### 2.3.3
 
 a)
+
+| MISS RATE/CONFIGS | C1, 1 way | C1, 2 ways | C1, 4 ways | C1, 8 ways | C2, 1 way | C2, 2 ways | C2, 4 ways | C2, 8 ways |
+| ----------------- | --------- | ---------- | ---------- | ---------- | --------- | ---------- | ---------- | ---------- |
+| Compulsory        | .00077470 | .00077112  | .00077193  | .00077652  | .00038478 | .00038584  | .00039104  | .00038608  |
+| Capacity          | .02801730 | .03318315  | .00002214  | .00001188  | .03481533 | .03481660  | 0          | 0          |
+| Conflict          | .00171105 | .00174216  | .00190593  | .00191160  | .00109989 | .00119756  | .00120896  | .00121392  |
+| Total             | .03050305 | .03569643  | .00270000  | .00270000  | .03630000 | .03640000  | .00160000  | .00160000  |
+
+b)
+
+![Plots](assets/plots-2.3.3.png)
+
+c)
+
+For both cache configurations, having 4 or 8 ways is clearly the best option, since the lowest total miss rates (very close to 0%) happen with these number of ways. Both configurations show a very similar behavior overall, which can be easily seen just by glancing at the plots: one could argue, still, that the best configuration should probably be the one with a block size of 16 Bytes (the second one) and 4 ways, since it shows the lowest total miss rate.
+
+d)

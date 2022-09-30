@@ -10,7 +10,7 @@ do
     for BLOCK_SIZE in 8 16 32 64
     do
         echo "Running for BYTE = $BYTE and BLOCK_SIZE = $BLOCK_SIZE" >> results.txt
-        MISS_RATE=$(../d4-7/dineroIV -l1-dsize $BYTE -l1-dbsize $BLOCK_SIZE -l1-dccc < trace.log | rg "Demand miss rate" | cut -d" " -f11)
+        MISS_RATE=$(../../d4-7/dineroIV -l1-dsize $BYTE -l1-dbsize $BLOCK_SIZE -l1-dccc < ../trace.log | rg "Demand miss rate" | cut -d" " -f11)
         PRICE=$(echo "scale=10; 10/(1024*1024) * $BYTE" | bc)
         COST=$(echo "scale=10; $PRICE * $MISS_RATE" | bc)
         echo "MISS_RATE: $MISS_RATE" >> results.txt
