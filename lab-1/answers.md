@@ -91,4 +91,21 @@ e)
 
 f)
 
-The best choice is the one minimizing the given cost function: in this case, the second configuration with 4 ways looks like the best option (matching the answer in 2.3.3 c)). Just as has been noted before, configurations with 4 or 8 ways are clearly superior in comparison with their peers: the mean access time ends up being about 2-3x smaller with these configurations!
+The best choice is the one minimizing the given cost function: in this case, the second configuration (block size of 16 Bytes) with 4 ways looks like the best option (matching the answer in 2.3.3 c)). Just as has been noted before, configurations with 4 or 8 ways are clearly superior in comparison with their peers: the mean access time ends up being about 2-3x smaller with these configurations!
+
+2.3.4
+
+a) TODO
+
+2.3.5
+
+a)
+
+- Cache Dimension: 1024B = 1KB
+- Block Size: 16B
+- Associativity: 4 ways
+- Write-Policy: TODO
+- Miss-Rate: .00160000
+- AMAT: 2.0454419938
+- Price: .0110156250
+- Cost: .0225318219
