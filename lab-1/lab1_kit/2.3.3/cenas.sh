@@ -3,6 +3,7 @@
 echo "" > results.txt
 
 BYTE=1024
+PRICE=$(echo "scale=10; 10/$BYTE + 0.01/8" | bc)
 
 for WAYS in 1 2 4 8
 do
@@ -22,5 +23,14 @@ do
             TOTAL_MISS_RATE=$(echo "scale=10; $TOTAL_MISS_RATE + $TYPE_MISS_RATE" | bc)
         done
         echo "Total miss rate, with $WAYS ways: $TOTAL_MISS_RATE" >> results.txt
+        AMAT_RIGHT=$(echo "scale=10; $TOTAL_MISS_RATE * 140" | bc)
+        AMAT_LEFT=$(echo "scale=10; 2 * (0.7 + 0.35 * (l($WAYS) / l(10)))" | bc -l)
+        AMAT=$(echo "scale=10; $AMAT_LEFT + $AMAT_RIGHT" | bc)
+        echo "AMAT, with $WAYS ways: $AMAT" >> results.txt
+        COST=$(echo "scale=10; $PRICE * $AMAT" | bc) # from EQ.1, as suggested in the question's statement
+        echo "COST: $COST" >> results.txt
+        echo "---" >> results.txt
     done
 done
+
+echo "Price, for both configs, is $PRICE" >> results.txt

@@ -71,3 +71,24 @@ c)
 For both cache configurations, having 4 or 8 ways is clearly the best option, since the lowest total miss rates (very close to 0%) happen with these number of ways. Both configurations show a very similar behavior overall, which can be easily seen just by glancing at the plots: one could argue, still, that the best configuration should probably be the one with a block size of 16 Bytes (the second one) and 4 ways, since it shows the lowest total miss rate.
 
 d)
+
+AMAT formula: hit time + miss rate \* miss penalty
+According to Table 1:
+
+- t(L1, H) = (L1) hit time = 2 _ (0.7 + 0.35 _ log2(#ways))ns
+- t(L1, M) = (SDRAM) miss penalty = going to memory = 140ns
+
+Therefore, AMAT = 2*(0.7 + 0.35*log2(#ways)) + p(L1, M) \* 140
+
+e)
+
+| THINGIES/CONFIGS | C1, 1 WAY    | C1, 2 WAYS   | C1, 4 WAYS   | C1, 8 WAYS   | C2, 1 WAY    | C2,2 WAYS    | C2, 4 WAYS   | C2, 8 WAYS   |
+| ---------------- | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ |
+| MISS RATE        | 0.03050305   | .03569643    | .00270000    | .00270000    | .03630000    | .03640000    | .00160000    | .00160000    |
+| AMAT             | 5.6704270000 | 6.6082211968 | 2.1994419938 | 2.4101629908 | 6.4820000000 | 6.7067209968 | 2.0454419938 | 2.2561629908 |
+| PRICE            | .0110156250  | .0110156250  | .0110156250  | .0110156250  | .0110156250  | .0110156250  | .0110156250  | .0110156250  |
+| COST FUNCTION    | .0624632974  | .0727936866  | .0242282282  | .0265494516  | .0714032812  | .0738787234  | .0225318219  | .0248530454  |
+
+f)
+
+The best choice is the one minimizing the given cost function: in this case, the second configuration with 4 ways looks like the best option (matching the answer in 2.3.3 c)). Just as has been noted before, configurations with 4 or 8 ways are clearly superior in comparison with their peers: the mean access time ends up being about 2-3x smaller with these configurations!
