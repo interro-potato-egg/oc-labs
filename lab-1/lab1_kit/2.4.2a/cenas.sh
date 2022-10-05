@@ -15,7 +15,6 @@ DINERO=$(../../d4-7/dineroIV -l1-dsize $L1_SIZE -l1-dbsize $L1_BLOCK_SIZE -l2-ds
 TOTAL_MISS_RATE=$(echo "$DINERO" | grep "Demand miss rate" | tail -n1 | cut -d" " -f11)
 echo "TOTAL MISS RATE: $TOTAL_MISS_RATE" >> results.txt
 for MISS_TYPE in "Capacity" "Conflict" "Compulsory"; do
-    RELATIVE_MISS_RATE=$(echo "$DINERO" | grep "$MISS_TYPE fraction" | tail -n1 | cut -f2)
-    MISS_RATE=$(echo "scale=10; $RELATIVE_MISS_RATE * $TOTAL_MISS_RATE" | bc)
+    MISS_RATE=$(echo "$DINERO" | grep "$MISS_TYPE fraction" | tail -n1 | cut -f2)
     echo "$MISS_TYPE MISS RATE: $MISS_RATE">> results.txt
 done
