@@ -1,88 +1,88 @@
 
 Running for 1024 B, BLOCK_SIZE = 8 and WAYS = 1
 Compulsory miss rate, with 1 ways: .00077470
-Compulsory RELATIVE miss rate (% among types), with 1 ways: 2.5400
-Conflict miss rate, with 1 ways: .02801730
-Conflict RELATIVE miss rate (% among types), with 1 ways: 91.8600
+Compulsory RELATIVE miss rate (% among types), with 1 ways: .0254
 Capacity miss rate, with 1 ways: .00171105
-Capacity RELATIVE miss rate (% among types), with 1 ways: 5.6100
+Capacity RELATIVE miss rate (% among types), with 1 ways: .0561
+Conflict miss rate, with 1 ways: .02801730
+Conflict RELATIVE miss rate (% among types), with 1 ways: .9186
 Total miss rate, with 1 ways: 0.0305	
 AMAT, with 1 ways: 5.6700000000
 COST: .0624585937
 ---
-Running for 1024 B, BLOCK_SIZE = 16 and WAYS = 1
-Compulsory miss rate, with 1 ways: .00038478
-Compulsory RELATIVE miss rate (% among types), with 1 ways: 1.0600
-Conflict miss rate, with 1 ways: .03481533
-Conflict RELATIVE miss rate (% among types), with 1 ways: 95.9100
-Capacity miss rate, with 1 ways: .00109989
-Capacity RELATIVE miss rate (% among types), with 1 ways: 3.0300
-Total miss rate, with 1 ways: 0.0363	
-AMAT, with 1 ways: 6.4820000000
-COST: .0714032812
----
 Running for 1024 B, BLOCK_SIZE = 8 and WAYS = 2
 Compulsory miss rate, with 2 ways: .00077112
-Compulsory RELATIVE miss rate (% among types), with 2 ways: 2.1600
-Conflict miss rate, with 2 ways: .03318315
-Conflict RELATIVE miss rate (% among types), with 2 ways: 92.9500
+Compulsory RELATIVE miss rate (% among types), with 2 ways: .0216
 Capacity miss rate, with 2 ways: .00174216
-Capacity RELATIVE miss rate (% among types), with 2 ways: 4.8800
+Capacity RELATIVE miss rate (% among types), with 2 ways: .0488
+Conflict miss rate, with 2 ways: .03318315
+Conflict RELATIVE miss rate (% among types), with 2 ways: .9295
 Total miss rate, with 2 ways: 0.0357	
 AMAT, with 2 ways: 7.0979999996
 COST: .0781889062
 ---
-Running for 1024 B, BLOCK_SIZE = 16 and WAYS = 2
-Compulsory miss rate, with 2 ways: .00038584
-Compulsory RELATIVE miss rate (% among types), with 2 ways: 1.0600
-Conflict miss rate, with 2 ways: .03481660
-Conflict RELATIVE miss rate (% among types), with 2 ways: 95.6500
-Capacity miss rate, with 2 ways: .00119756
-Capacity RELATIVE miss rate (% among types), with 2 ways: 3.2900
-Total miss rate, with 2 ways: 0.0364	
-AMAT, with 2 ways: 7.1959999996
-COST: .0792684374
----
 Running for 1024 B, BLOCK_SIZE = 8 and WAYS = 4
 Compulsory miss rate, with 4 ways: .00077193
-Compulsory RELATIVE miss rate (% among types), with 4 ways: 28.5900
-Conflict miss rate, with 4 ways: .00002214
-Conflict RELATIVE miss rate (% among types), with 4 ways: .8200
+Compulsory RELATIVE miss rate (% among types), with 4 ways: .2859
 Capacity miss rate, with 4 ways: .00190593
-Capacity RELATIVE miss rate (% among types), with 4 ways: 70.5900
+Capacity RELATIVE miss rate (% among types), with 4 ways: .7059
+Conflict miss rate, with 4 ways: .00002214
+Conflict RELATIVE miss rate (% among types), with 4 ways: .0082
 Total miss rate, with 4 ways: 0.0027	
 AMAT, with 4 ways: 3.1779999998
 COST: .0350076562
 ---
-Running for 1024 B, BLOCK_SIZE = 16 and WAYS = 4
-Compulsory miss rate, with 4 ways: .00039104
-Compulsory RELATIVE miss rate (% among types), with 4 ways: 24.4400
-Conflict miss rate, with 4 ways: 0
-Conflict RELATIVE miss rate (% among types), with 4 ways: 0
-Capacity miss rate, with 4 ways: .00120896
-Capacity RELATIVE miss rate (% among types), with 4 ways: 75.5600
-Total miss rate, with 4 ways: 0.0016	
-AMAT, with 4 ways: 3.0239999998
-COST: .0333112499
----
 Running for 1024 B, BLOCK_SIZE = 8 and WAYS = 8
 Compulsory miss rate, with 8 ways: .00077652
-Compulsory RELATIVE miss rate (% among types), with 8 ways: 28.7600
-Conflict miss rate, with 8 ways: .00001188
-Conflict RELATIVE miss rate (% among types), with 8 ways: .4400
+Compulsory RELATIVE miss rate (% among types), with 8 ways: .2876
 Capacity miss rate, with 8 ways: .00191160
-Capacity RELATIVE miss rate (% among types), with 8 ways: 70.8000
+Capacity RELATIVE miss rate (% among types), with 8 ways: .7080
+Conflict miss rate, with 8 ways: .00001188
+Conflict RELATIVE miss rate (% among types), with 8 ways: .0044
 Total miss rate, with 8 ways: 0.0027	
 AMAT, with 8 ways: 3.8779999998
 COST: .0427185937
 ---
+Running for 1024 B, BLOCK_SIZE = 16 and WAYS = 1
+Compulsory miss rate, with 1 ways: .00038478
+Compulsory RELATIVE miss rate (% among types), with 1 ways: .0106
+Capacity miss rate, with 1 ways: .00109989
+Capacity RELATIVE miss rate (% among types), with 1 ways: .0303
+Conflict miss rate, with 1 ways: .03481533
+Conflict RELATIVE miss rate (% among types), with 1 ways: .9591
+Total miss rate, with 1 ways: 0.0363	
+AMAT, with 1 ways: 6.4820000000
+COST: .0714032812
+---
+Running for 1024 B, BLOCK_SIZE = 16 and WAYS = 2
+Compulsory miss rate, with 2 ways: .00038584
+Compulsory RELATIVE miss rate (% among types), with 2 ways: .0106
+Capacity miss rate, with 2 ways: .00119756
+Capacity RELATIVE miss rate (% among types), with 2 ways: .0329
+Conflict miss rate, with 2 ways: .03481660
+Conflict RELATIVE miss rate (% among types), with 2 ways: .9565
+Total miss rate, with 2 ways: 0.0364	
+AMAT, with 2 ways: 7.1959999996
+COST: .0792684374
+---
+Running for 1024 B, BLOCK_SIZE = 16 and WAYS = 4
+Compulsory miss rate, with 4 ways: .00039104
+Compulsory RELATIVE miss rate (% among types), with 4 ways: .2444
+Capacity miss rate, with 4 ways: .00120896
+Capacity RELATIVE miss rate (% among types), with 4 ways: .7556
+Conflict miss rate, with 4 ways: 0
+Conflict RELATIVE miss rate (% among types), with 4 ways: 0
+Total miss rate, with 4 ways: 0.0016	
+AMAT, with 4 ways: 3.0239999998
+COST: .0333112499
+---
 Running for 1024 B, BLOCK_SIZE = 16 and WAYS = 8
 Compulsory miss rate, with 8 ways: .00038608
-Compulsory RELATIVE miss rate (% among types), with 8 ways: 24.1300
+Compulsory RELATIVE miss rate (% among types), with 8 ways: .2413
+Capacity miss rate, with 8 ways: .00121392
+Capacity RELATIVE miss rate (% among types), with 8 ways: .7587
 Conflict miss rate, with 8 ways: 0
 Conflict RELATIVE miss rate (% among types), with 8 ways: 0
-Capacity miss rate, with 8 ways: .00121392
-Capacity RELATIVE miss rate (% among types), with 8 ways: 75.8700
 Total miss rate, with 8 ways: 0.0016	
 AMAT, with 8 ways: 3.7239999998
 COST: .0410221874
