@@ -1,5 +1,5 @@
 
 TOTAL MISS RATE: 0.0598	
-Capacity MISS RATE:       0.6259
-Conflict MISS RATE:       0.0000
-Compulsory MISS RATE:       0.3741
+Capacity MISS RATE: .03742882
+Conflict MISS RATE: 0
+Compulsory MISS RATE: .02237118
