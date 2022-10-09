@@ -5,7 +5,7 @@
 #include <string.h>
 
 #define N 512
-#define CACHE_LINE_SIZE 1 // TODO: update this value
+#define CACHE_LINE_SIZE 64
 
 #define SUB_MATRIX_SIZE                                                        \
     (((CACHE_LINE_SIZE / sizeof(int16_t)) <= 0)                                \
@@ -68,7 +68,7 @@ int main() {
     }
 
     /* Add L1 data cache misses to the Event Set */
-    if (PAPI_add_event(EventSet, PAPI_L1_DCM) != PAPI_OK) {
+    if (PAPI_add_event(EventSet, PAPI_L2_DCM) != PAPI_OK) {
         handle_error("add_event");
     }
     /* Add load instructions completed to the Event Set */
@@ -91,7 +91,7 @@ int main() {
         handle_error("read");
     }
 
-    fprintf(stdout, "After resetting counter 'PAPI_L1_DCM' [x10^6]: %f\n",
+    fprintf(stdout, "After resetting counter 'PAPI_L2_DCM' [x10^6]: %f\n",
             (double)(values[0]) / 1000000);
     fprintf(stdout, "After resetting counter 'PAPI_LD_INS' [x10^6]: %f\n",
             (double)(values[1]) / 1000000);
@@ -128,7 +128,7 @@ int main() {
         handle_error("stop");
     }
 
-    fprintf(stdout, "After stopping counter 'PAPI_L1_DCM'  [x10^6]: %f\n",
+    fprintf(stdout, "After stopping counter 'PAPI_L2_DCM'  [x10^6]: %f\n",
             (double)(values[0]) / 1000000);
     fprintf(stdout, "After stopping counter 'PAPI_LD_INS'  [x10^6]: %f\n",
             (double)(values[1]) / 1000000);

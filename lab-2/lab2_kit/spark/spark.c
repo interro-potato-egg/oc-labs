@@ -6,6 +6,7 @@
 #include <stdlib.h> // exit()
 #include <string.h> // memset()
 #include <time.h>
+#include <math.h>
 
 #define CACHE_MIN (4 * 1024)        // 4 KB
 #define CACHE_MAX (4 * 1024 * 1024) // 4 MB
@@ -23,14 +24,13 @@ double get_elapsed(struct timespec const *start) {
 
 int main() {
     uint8_t *array = calloc(CACHE_MAX, sizeof(uint8_t));
-
-    fputs("size\tstride\telapsed(s)\tcycles\n", stdout);
-
+    fputs("size\tstride\telapsed(s)\tcycles\tamat(ns)\tarray accesses\n", stdout);
     for (size_t cache_size = CACHE_MIN; cache_size <= CACHE_MAX;
          cache_size = cache_size * 2) {
-        fprintf(stderr, "[LOG]: running with array of size %zu KiB\n",
+        fprintf(stdout, "[LOG]: running with array of size %zu KiB\n",
                 cache_size >> 10);
         fflush(stderr);
+        long long array_acesses = 0;
         for (size_t stride = 1; stride <= cache_size / 2; stride = 2 * stride) {
             size_t limit = cache_size - stride + 1;
 
@@ -50,6 +50,7 @@ int main() {
                 for (size_t index = 0; index < limit;
                      index += stride, n_iterations++) {
                     array[index] = array[index] + 1;
+                    array_acesses++;
                 }
             }
             /* ************************************************************** */
@@ -62,9 +63,10 @@ int main() {
              * as needed.
              *****************************************************************/
 
+            double const average_access_time = (time_diff * pow(10.0, 9)) / (cache_size * N_REPETITIONS);
             /* Output to stdout */
-            fprintf(stdout, "%zu\t%zu\t%lf\t%zu\n", cache_size, stride,
-                    time_diff, cycle_count);
+            fprintf(stdout, "%zu\t%zu\t%lf\t%zu\t%lf\t%lld\n", cache_size, stride,
+                    time_diff, cycle_count, average_access_time, array_acesses);
         }
     }
 

@@ -9,23 +9,6 @@
 void handle_error(char *outstring);
 void transpose(int16_t m[N][N], int16_t res[N][N]);
 
-void setup(int16_t m1[N][N], int16_t m2[N][N], int16_t m3[N][N]) {
-    int16_t tmp[N][N];
-    memset(m3, 0, sizeof(int16_t) * N * N);
-    for (size_t i = 0; i < N; ++i) {
-        for (size_t j = 0; j < N; ++j) {
-            m1[i][j] = (i + j) % 8 + 1;
-            tmp[i][j] = (N - i + j) % 8 + 1;
-        }
-    }
-
-    /************************************/
-    /*      MATRIX TRANSPOSITION        */
-    /************************************/
-
-    transpose(tmp, m2);
-}
-
 void transpose(int16_t m[N][N], int16_t res[N][N]) {
     for (size_t i = 0; i < N; ++i) {
         for (size_t j = 0; j < N; ++j) {
@@ -50,7 +33,14 @@ int main() {
     int16_t mul2[N][N];
     int16_t res[N][N];
 
-    setup(mul1, mul2, res);
+    int16_t tmp[N][N];
+    memset(res, 0, sizeof(int16_t) * N * N);
+    for (size_t i = 0; i < N; ++i) {
+        for (size_t j = 0; j < N; ++j) {
+            mul1[i][j] = (i + j) % 8 + 1;
+            tmp[i][j] = (N - i + j) % 8 + 1;
+        }
+    }
 
     /************************************/
 
@@ -68,7 +58,7 @@ int main() {
     }
 
     /* Add L1 data cache misses to the Event Set */
-    if (PAPI_add_event(EventSet, PAPI_L1_DCM) != PAPI_OK) {
+    if (PAPI_add_event(EventSet, PAPI_L2_DCM) != PAPI_OK) {
         handle_error("add_event");
     }
     /* Add load instructions to the Event Set */
@@ -91,7 +81,7 @@ int main() {
         handle_error("read");
     }
 
-    fprintf(stdout, "After resetting counter 'PAPI_L1_DCM' [x10^6]: %f\n",
+    fprintf(stdout, "After resetting counter 'PAPI_L2_DCM' [x10^6]: %f\n",
             (double)(values[0]) / 1000000);
     fprintf(stdout, "After resetting counter 'PAPI_LD_INS' [x10^6]: %f\n",
             (double)(values[1]) / 1000000);
@@ -109,6 +99,8 @@ int main() {
     /* Gets the starting time in microseconds */
     long long const start_usec = PAPI_get_real_usec();
 
+    transpose(tmp, mul2);
+
     multiply_matrices(mul1, mul2, res);
 
     /************************************/
@@ -124,7 +116,7 @@ int main() {
         handle_error("stop");
     }
 
-    fprintf(stdout, "After stopping counter 'PAPI_L1_DCM'  [x10^6]: %f\n",
+    fprintf(stdout, "After stopping counter 'PAPI_L2_DCM'  [x10^6]: %f\n",
             (double)(values[0]) / 1000000);
     fprintf(stdout, "After stopping counter 'PAPI_LD_INS'  [x10^6]: %f\n",
             (double)(values[1]) / 1000000);
