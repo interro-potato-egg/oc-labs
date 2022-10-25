@@ -12,7 +12,7 @@ mult:   .word   0
 
 loop:   dmul    $12, $12, $9   ; $12 = A[i]*mult
         daddi   $5, $5, 2      ; i += 2
-        lw      $22, 16($1)    ; $12 = A[i+1]
+        lw      $22, 16($1)    ; $22 = A[i+1]
         dadd    $9, $9, $12    ; mult = mult + A[i]*mult
 
         dmul    $22, $22, $9   ; $22 = A[i+1]*mult
